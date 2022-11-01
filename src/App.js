@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import LoginFormik from './Components/LoginFormik';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RegisterFormik from './Components/RegisterFormik';
+import Home from './Components/Home';
+import {ToastContainer} from "react-toastify";
+import ProtectedRoutes from './Components/ProtectedRoutes';
+import Aboutus from './Components/Aboutus'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ToastContainer />
+     <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginFormik />}/>
+        <Route path="/register" element={<RegisterFormik />}/>
+        <Route element={<ProtectedRoutes />}>
+        <Route path="/home" element={<Home />}/>
+          </Route>
+          <Route element={<ProtectedRoutes />}>
+        <Route path="/about" element={<Aboutus />}/>
+          </Route>
+      </Routes>
+    </BrowserRouter>
     </div>
   );
 }

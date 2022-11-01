@@ -7,6 +7,24 @@
   pointer-events: none;
 }
 
+.form{
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  position: absolute;
+  color: red;
+  font-size:  0.8rem;
+}
+
+.unauthorized{
+  text-align: center;
+  font-size: 140px;
+  margin:0 auto;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
